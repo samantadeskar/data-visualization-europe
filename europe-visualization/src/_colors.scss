@@ -1,0 +1,7 @@
+$navbar: #1a237e;
+$navbar-hover: #3949ab;
+
+:export {
+    navbar: $navbar;
+    navbarHover: $navbar-hover;
+}
