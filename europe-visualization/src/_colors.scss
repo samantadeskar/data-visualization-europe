@@ -1,7 +1,13 @@
-$navbar: #1a237e;
-$navbar-hover: #3949ab;
+$navbar: #59253a;
+$navbar-hover: #78244c;
+$dirty-pink: #895061;
+$blue: #0677a1;
+$gray-blue: #2d4159;
 
 :export {
     navbar: $navbar;
     navbarHover: $navbar-hover;
+    diryPink: $dirty-pink;
+    blue: $blue;
+    grayBlue: $gray-blue;
 }
