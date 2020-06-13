@@ -4,37 +4,87 @@ import * as topojson from "topojson";
 
 import "./Map.scss";
 import constants from "../../constants";
+import Navbar from "../Navbar/Navbar";
+import * as Colors from "../../_colors.scss";
+import europeData from "../../Data/europeData";
 class Map extends Component {
 
-    getPath = () => {
-        const projection = d3.geoMercator()
-            .center([0, 55])
-            .scale(700)
-            .translate([500, constants.height / 2])
-        return d3.geoPath().projection(projection);
-    }
+  getPath = () => {
+    const projection = d3.geoMercator()
+      .center([0, 55])
+      .scale(700)
+      .translate([500, constants.height / 2])
+    return d3.geoPath().projection(projection);
+  }
 
-    drawMap = () => {
-        const path = this.getPath();
-        d3.json("europe.json").then(europe => {
-            d3.select("#europeMap").selectAll("path.country")
-                .data(topojson.feature(europe, europe.objects.europe).features)
-                .enter()
-                .append("path")
-                .attr("class", "country")
-                .attr("d", path);
-        });
-    }
+  drawMap = () => {
+    const path = this.getPath();
+    d3.json("europe.json").then(europe => {
+      d3.select("#europeMap").selectAll("path.country")
+        .data(topojson.feature(europe, europe.objects.europe).features)
+        .enter()
+        .append("path")
+        .attr("class", "country")
+        .attr("id", function (d) {
+          return d.id;
+        })
+        .attr("d", path);
+    });
+  }
 
-    render() {
-        
-        return (
-            <svg width={constants.width} height={constants.height} id="europeMap">
-                {this.drawMap()}
-            </svg>
-        );
-        
+  removeMap = () => {
+    d3.select("#europeMap").selectAll("*").remove();
+  }
+
+  fillMap = (value, e) => {
+    e.preventDefault();
+    console.log(europeData);
+    let opacity;
+    let opacityValue;
+    if (value === constants.population) {
+      opacity = d3.scaleLinear().domain([0, 100000000]).range([0.1, 1]);
+    } else if (value === constants.surface) {
+      opacity = d3.scaleLinear().domain([0, 750000]).range([0.1, 1]);
+    } else if (value === constants.gdp) {
+      opacity = d3.scaleLinear().domain([0, 170000]).range([0.1, 1]);
     }
+    this.removeMap();
+    const path = this.getPath();
+    d3.json("europe.json").then(europe => {
+      d3.select("#europeMap").selectAll("path.country")
+        .data(topojson.feature(europe, europe.objects.europe).features)
+        .enter()
+        .append("path")
+        .attr("class", "country")
+        .attr("id", function (d) {
+          return d.id;
+        })
+        .attr("d", path)
+        .style("fill-opacity", function (d) {
+          for (let i = 0; i < europeData.length; i++) {
+            if (europeData[i].id === d.id) {
+              if (value === constants.population) opacityValue = europeData[i].population
+              else if (value === constants.surface) opacityValue = europeData[i].surface
+              else if (value === constants.gdp) opacityValue = europeData[i].gdp
+              return opacity(opacityValue);
+            }
+          }
+        })
+        .style("fill", Colors.mapColor);
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar fillMap={this.fillMap} />
+        <svg width={constants.width} height={constants.height} id="europeMap">
+          {this.drawMap()}
+        </svg>
+      </div>
+    );
+
+  }
 }
 
 export default Map;

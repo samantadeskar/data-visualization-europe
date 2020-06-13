@@ -1,13 +1,9 @@
-$navbar: #59253a;
-$navbar-hover: #78244c;
-$dirty-pink: #895061;
+$map-color: #e98074;
 $blue: #0677a1;
 $gray-blue: #2d4159;
 
 :export {
-    navbar: $navbar;
-    navbarHover: $navbar-hover;
-    diryPink: $dirty-pink;
+    mapColor: $map-color;
     blue: $blue;
     grayBlue: $gray-blue;
 }

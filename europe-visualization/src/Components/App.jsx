@@ -6,7 +6,6 @@ import Navbar from "./Navbar/Navbar";
 function App() {
   return (
     <div id="App" className="App">
-      <Navbar />
       <Map />
     </div>
   );
