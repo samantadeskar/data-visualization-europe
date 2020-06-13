@@ -1,6 +1,12 @@
 svg {
-    path {
-        fill: none;
-        stroke: white;
-    }
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  cursor: grab;
+  display: block;
+  margin: 0 auto;
+  path {
+    fill: none;
+    stroke: white;
+  }
 }

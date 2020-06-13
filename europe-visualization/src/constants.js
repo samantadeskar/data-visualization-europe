@@ -1,5 +1,5 @@
 const constants = {
-    width: 1200,
+    width: 1500,
     height: 900,
     surface: "surface",
     population: "population",

@@ -12,15 +12,18 @@ class Map extends Component {
   getPath = () => {
     const projection = d3.geoMercator()
       .center([0, 55])
-      .scale(700)
-      .translate([500, constants.height / 2])
+      .scale(650)
+      .translate([constants.width / 2, constants.height / 2])
     return d3.geoPath().projection(projection);
   }
 
   drawMap = () => {
+    this.removeMap();
     const path = this.getPath();
     d3.json("europe.json").then(europe => {
-      d3.select("#europeMap").selectAll("path.country")
+      d3.select("#europeMap")
+        .call(this.zoom())
+        .selectAll("path.country")
         .data(topojson.feature(europe, europe.objects.europe).features)
         .enter()
         .append("path")
@@ -32,15 +35,28 @@ class Map extends Component {
     });
   }
 
+  zoom = () => {
+    return d3.zoom()
+      .scaleExtent([1, 20])
+      .on("zoom", function () {
+        d3.select("#europeMap").selectAll("path")
+          .attr("transform", d3.event.transform)
+      });
+  }
+
   removeMap = () => {
     d3.select("#europeMap").selectAll("*").remove();
   }
 
   fillMap = (value, e) => {
     e.preventDefault();
-    console.log(europeData);
+    e.stopPropagation();
+    this.removeMap();
+
+    const path = this.getPath();
     let opacity;
     let opacityValue;
+
     if (value === constants.population) {
       opacity = d3.scaleLinear().domain([0, 100000000]).range([0.1, 1]);
     } else if (value === constants.surface) {
@@ -48,8 +64,7 @@ class Map extends Component {
     } else if (value === constants.gdp) {
       opacity = d3.scaleLinear().domain([0, 170000]).range([0.1, 1]);
     }
-    this.removeMap();
-    const path = this.getPath();
+
     d3.json("europe.json").then(europe => {
       d3.select("#europeMap").selectAll("path.country")
         .data(topojson.feature(europe, europe.objects.europe).features)
@@ -77,10 +92,14 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <Navbar fillMap={this.fillMap} />
-        <svg width={constants.width} height={constants.height} id="europeMap">
-          {this.drawMap()}
-        </svg>
+        <Navbar
+          fillMap={this.fillMap}
+          drawMap={this.drawMap} />
+        <div clasName="svg-div">
+          <svg id="europeMap">
+            {this.drawMap()}
+          </svg>
+        </div>
       </div>
     );
 

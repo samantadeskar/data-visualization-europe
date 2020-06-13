@@ -1,107 +1,150 @@
 @import "../../colors";
 .navbar {
-    &__dropdown-surface {
-        background: none;
+  &__dropdown-surface {
+    background: none;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    cursor: default;
+    &__content {
+      display: none;
+      position: absolute;
+      background-color: none;
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0px 8px 16px 0px black;
+      border-radius: 10px;
+      margin-top: 10px;
+      button {
         color: white;
-        font-size: 20px;
-        position: relative;
-        display: inline-block;
-        padding-left:10px;
-        padding-right: 10px; 
-        &__content {
-            display: none;
-            position: absolute;
-            background-color: none;
-            min-width: 200px;
-            z-index: 1;
-            box-shadow: 0px 8px 16px 0px black;
-            button {
-                color: white;
-                display: block;
-                background: none;
-                border: none;
-                width: 100%;
-            }
-            button:hover {
-                background: $gray-blue;
-            }
-        }
-    }
-    &__dropdown-surface:hover {
+        display: block;
+        background: none;
+        border: none;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: default;
+        border-radius: 10px;
+      }
+      button:hover {
         background: $gray-blue;
-        .navbar__dropdown-surface__content {
-            display: block;
-            background: none;
-        }
+      }
     }
+  }
+  &__dropdown-surface:hover {
+    background: $gray-blue;
+    border-radius: 10px;
+    .navbar__dropdown-surface__content {
+      display: block;
+      position: absolute;
+      background: none;
+    }
+  }
 
-    &__dropdown-population {
-        background: none;
+  &__dropdown-population {
+    background: none;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    cursor: default;
+    &__content {
+      display: none;
+      position: absolute;
+      background-color: none;
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0px 8px 16px 0px black;
+      border-radius: 10px;
+      margin-top: 10px;
+      button {
         color: white;
-        font-size: 20px;
-        position: relative;
-        display: inline-block;
-        padding-left:10px;
-        padding-right: 10px;
-        &__content {
-            display: none;
-            position: absolute;
-            background-color: none;
-            min-width: 200px;
-            z-index: 1;
-            box-shadow: 0px 8px 16px 0px black;
-            button {
-                color: white;
-                display: block;
-                background: none;
-                border: none;
-                width: 100%;
-            }
-            button:hover {
-                background: $gray-blue;
-            }
-        }
-    }
-    &__dropdown-population:hover {
+        display: block;
+        background: none;
+        border: none;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: default;
+        border-radius: 10px;
+      }
+      button:hover {
         background: $gray-blue;
-        .navbar__dropdown-population__content {
-            display: block;
-            background: none;
-        }
+      }
     }
+  }
+  &__dropdown-population:hover {
+    background: $gray-blue;
+    border-radius: 10px;
+    .navbar__dropdown-population__content {
+      display: block;
+      position: absolute;
+      background: none;
+    }
+  }
 
-    &__dropdown-gdp {
-        background: none;
+  &__dropdown-gdp {
+    background: none;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    cursor: default;
+    &__content {
+      display: none;
+      position: absolute;
+      background-color: none;
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0px 8px 16px 0px black;
+      border-radius: 10px;
+      margin-top: 10px;
+      button {
         color: white;
-        font-size: 20px;
-        position: relative;
-        display: inline-block;
-        padding-left:10px;
-        padding-right: 10px;
-        &__content {
-            display: none;
-            position: absolute;
-            background-color: none;
-            min-width: 200px;
-            z-index: 1;
-            box-shadow: 0px 8px 16px 0px black;
-            button {
-                color: white;
-                display: block;
-                background: none;
-                border: none;
-                width: 100%;
-            }
-            button:hover {
-                background: $gray-blue;
-            }
-        }
-    }
-    &__dropdown-gdp:hover {
+        display: block;
+        background: none;
+        border: none;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: default;
+        border-radius: 10px;
+      }
+      button:hover {
         background: $gray-blue;
-        .navbar__dropdown-gdp__content {
-            display: block;
-            background: none;
-        }
+      }
     }
+  }
+  &__dropdown-gdp:hover {
+    background: $gray-blue;
+    border-radius: 10px;
+    .navbar__dropdown-gdp__content {
+      display: block;
+      position: absolute;
+      background: none;
+    }
+  }
+  &__button-clear {
+    visibility: hidden;
+    background: none;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    cursor: default;
+    &.shown {
+      visibility: visible;
+    }
+    &.shown:hover {
+      background: $gray-blue;
+      border-radius: 10px;
+    }
+  }
 }
