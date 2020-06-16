@@ -4,6 +4,11 @@ const constants = {
     surface: "surface",
     population: "population",
     gdp: "gdp",
+    pie: "pie",
+    bar: "bar",
+    europe: "europe",
+    pieChartOuterRadius: 500,
+    pieChartInnerRadius: 0,
 }
 
 export default constants;

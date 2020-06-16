@@ -1,9 +1,31 @@
 $map-color: #e98074;
 $blue: #0677a1;
 $gray-blue: #2d4159;
+$gray-blue-opacity: #2d4159b3;
 
+$chart-color-1:#ffbefa;
+$chart-color-2:#ffb1e9;
+$chart-color-3:#ffa5d0;
+$chart-color-4:#ff9bb2;
+$chart-color-5:#ff958f;
+$chart-color-6:#ff966a;
+$chart-color-7:#e0944d;
+$chart-color-8:#ecee5d;
+$chart-color-9:#b2ff71;
+$chart-color-10:#ffa600;
 :export {
     mapColor: $map-color;
     blue: $blue;
     grayBlue: $gray-blue;
+    grayBlueopacity: $gray-blue-opacity;
+    chartColor1: $chart-color-1;
+    chartColor2: $chart-color-2;
+    chartColor3: $chart-color-3;
+    chartColor4: $chart-color-4;
+    chartColor5: $chart-color-5;
+    chartColor6: $chart-color-6;
+    chartColor7: $chart-color-7;
+    chartColor8: $chart-color-8;
+    chartColor9: $chart-color-9;
+    chartColor10: $chart-color-10;
 }

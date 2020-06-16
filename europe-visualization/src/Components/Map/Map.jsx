@@ -11,7 +11,7 @@ class Map extends Component {
 
   getPath = () => {
     const projection = d3.geoMercator()
-      .center([0, 55])
+      .center([0, 54])
       .scale(650)
       .translate([constants.width / 2, constants.height / 2])
     return d3.geoPath().projection(projection);
@@ -20,6 +20,7 @@ class Map extends Component {
   drawMap = () => {
     this.removeMap();
     const path = this.getPath();
+
     d3.json("europe.json").then(europe => {
       d3.select("#europeMap")
         .call(this.zoom())
@@ -94,12 +95,12 @@ class Map extends Component {
       <div>
         <Navbar
           fillMap={this.fillMap}
-          drawMap={this.drawMap} />
-        <div clasName="svg-div">
-          <svg id="europeMap">
-            {this.drawMap()}
-          </svg>
-        </div>
+          drawMap={this.drawMap}
+          displayChart={this.displayEuropeChart}
+        />
+        <svg id="europeMap">
+          {this.drawMap()}
+        </svg>
       </div>
     );
 
