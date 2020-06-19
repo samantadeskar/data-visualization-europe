@@ -69,7 +69,7 @@ class Navbar extends Component {
           Surface
           <div className="navbar__dropdown-surface__content">
             <div onClick={() => this.displayChart(constants.pie, constants.surface)}>PIE CHART</div>
-            <div>BAR CHART</div>
+            <div onClick={() => this.displayChart(constants.bar, constants.surface)}>BAR CHART</div>
             <div onClick={(e) => this.handleOnClickShow(constants.surface, e)}>SHOW ON MAP</div>
           </div>
         </div>
@@ -77,14 +77,14 @@ class Navbar extends Component {
           Population
           <div className="navbar__dropdown-population__content">
             <div onClick={() => this.displayChart(constants.pie, constants.population)}>PIE CHART</div>
-            <div>BAR CHART</div>
+            <div onClick={() => this.displayChart(constants.bar, constants.population)}>BAR CHART</div>
             <div onClick={(e) => this.handleOnClickShow(constants.population, e)}>SHOW ON MAP</div>
           </div>
         </div>
         <div className="navbar__dropdown-gdp">
           GDP per capita
           <div className="navbar__dropdown-gdp__content">
-            <div>BAR CHART</div>
+            <div onClick={() => this.displayChart(constants.bar, constants.gdp)}>BAR CHART</div>
             <div onClick={(e) => this.handleOnClickShow(constants.gdp, e)}>SHOW ON MAP</div>
           </div>
         </div>
