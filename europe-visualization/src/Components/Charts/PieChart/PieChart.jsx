@@ -5,7 +5,13 @@ import constants from "../../../constants";
 import europeData from "../../../Data/europeData";
 import colors from "../../../_colors.scss";
 class PieChart extends Component {
-
+constructor() {
+  super();
+  this.showChart = this.showChart.bind(this);
+}
+  componentDidMount() {
+    this.showChart();
+  }
   getArc = () => {
 
   }
@@ -40,7 +46,7 @@ class PieChart extends Component {
         }
         default: break;
       }
-      return [country.name, country.value];
+      return [country.value];
     });
   }
 
@@ -56,8 +62,8 @@ class PieChart extends Component {
       .enter()
       .append("g")
       .attr("className", "pie")
-      .attr("transform", "translate(" + (1000 / 2) + ", " +
-        (600 / 2) + ")");
+      .attr("transform", "translate(" + (constants.width / 2) + ", " +
+        (constants.height / 2) + ")");
     pieArcs.append("path")
       .attr("fill", function (d, i) {
         return color(i)

@@ -86,7 +86,7 @@ class Map extends Component {
             }
           }
         })
-        .style("fill", Colors.mapColor);
+        .style("fill", Colors.pink);
     });
   }
 

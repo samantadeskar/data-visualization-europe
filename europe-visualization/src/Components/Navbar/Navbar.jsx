@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import Modal from "react-bootstrap/Modal";
+import Modal from "react-responsive-modal";
 
 import "./Navbar.scss";
 import "../../constants";
 import constants from "../../constants";
 import PieChart from "../Charts/PieChart/PieChart";
-
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -54,8 +53,7 @@ class Navbar extends Component {
 
   showData = () => {
     return (
-      this.state.showModal
-      && <PieChart
+     this.state.showModal && <PieChart
         dataToShow={this.state.dataToShow}
         country={constants.europe}
       />
@@ -99,20 +97,43 @@ class Navbar extends Component {
         >
           CLEAR MAP
         </div>
-        <Modal
-          className="navbar__modal"
-          show={showModal}
-          animation={false}
-        >
-          <div
-            className="navbar__modal__header"
-            onClick={() => this.closeChart()}
+        <div>
+          {showModal && <Modal
+            className="navbar__modal"
+            open={showModal}
+            onClose={() => this.closeChart()}
+            closeOnOverlayClick={true}
+            showCloseIcon={false}
+            closeOnEsc={true}
+            center={true}
+            styles={{
+              overlay: {
+                display: "block",
+                position: "fixed",
+                overflowY: "auto",
+                overflowX: "hidden",
+                width: "100%",
+                height: "100%",
+                alignItems: "flex-start",
+              },
+              modal: {
+                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%, rgba(253, 203, 241, 0.6) 1%, rgba(230, 222, 233, 0.6) 100%)",
+                height: "90%",
+                width: "90%",
+                borderRadius: "10px",
+                margin: "auto",
+                boxShadow: "0px 4px 8px 0px gray",
+              },
+            }}
           >
-            Close
-          </div>
-          <Modal.Body>{this.showData()}</Modal.Body>
-        </Modal>
-      </div>
+            <div className="navbar__modal__close" onClick={() => this.closeChart()}>
+              Close
+            </div>
+            {showModal && this.showData()}
+          </Modal>
+          }
+        </div>
+      </div >
     );
   }
 }

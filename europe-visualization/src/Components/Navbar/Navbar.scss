@@ -1,8 +1,12 @@
 @import "../../colors";
 .navbar {
+  border: 2px solid $gray-blue;
+  border-radius: 10px;
+  width: fit-content;
+  height: fit-content;
   &__dropdown-surface {
     background: none;
-    color: white;
+    color: $gray-blue;
     font-size: 25px;
     position: relative;
     display: inline-block;
@@ -11,14 +15,14 @@
     &__content {
       display: none;
       position: absolute;
-      background-color: none;
       min-width: 200px;
-      z-index: 1;
-      box-shadow: 0px 8px 16px 0px black;
+      z-index: 2;
+      box-shadow: 0px 4px 8px 0px gray;
       border-radius: 10px;
       margin-top: 10px;
+      border-radius: 10px;
       div {
-        color: white;
+        color: $gray-blue;
         display: block;
         background: none;
         border: none;
@@ -31,26 +35,28 @@
         text-align: center;
       }
       div:hover {
-        background: $gray-blue;
+        background: $pink;
+        color: white;
       }
       div:active {
-        background: $blue;
+        background: $active-color;
       }
     }
   }
   &__dropdown-surface:hover {
-    background: $gray-blue;
-    border-radius: 10px;
+    background: $pink;
+    border-radius: 10px 0px 0px 10px;
+    color: white;
     .navbar__dropdown-surface__content {
       display: block;
       position: absolute;
-      background: none;
+      background: $dropdown-color;
     }
   }
 
   &__dropdown-population {
     background: none;
-    color: white;
+    color: $gray-blue;
     font-size: 25px;
     position: relative;
     display: inline-block;
@@ -62,11 +68,11 @@
       background-color: none;
       min-width: 200px;
       z-index: 1;
-      box-shadow: 0px 8px 16px 0px black;
+      box-shadow: 0px 4px 8px 0px gray;
       border-radius: 10px;
       margin-top: 10px;
       div {
-        color: white;
+        color: $gray-blue;
         display: block;
         background: none;
         border: none;
@@ -79,26 +85,27 @@
         text-align: center;
       }
       div:hover {
-        background: $gray-blue;
+        background: $pink;
+        color: white;
       }
       div:active {
-        background: $blue;
+        background: $active-color;
       }
     }
   }
   &__dropdown-population:hover {
-    background: $gray-blue;
-    border-radius: 10px;
+    background: $pink;
+    color: white;
     .navbar__dropdown-population__content {
       display: block;
       position: absolute;
-      background: none;
+      background: $dropdown-color;
     }
   }
 
   &__dropdown-gdp {
     background: none;
-    color: white;
+    color: $gray-blue;
     font-size: 25px;
     position: relative;
     display: inline-block;
@@ -110,11 +117,11 @@
       background-color: none;
       min-width: 200px;
       z-index: 1;
-      box-shadow: 0px 8px 16px 0px black;
+      box-shadow: 0px 4px 8px 0px gray;
       border-radius: 10px;
       margin-top: 10px;
       div {
-        color: white;
+        color: $gray-blue;
         display: block;
         background: none;
         border: none;
@@ -127,64 +134,64 @@
         text-align: center;
       }
       div:hover {
-        background: $gray-blue;
+        background: $pink;
+        color: white;
       }
       div:active {
-        background: $blue;
+        background: $active-color;
       }
     }
   }
   &__dropdown-gdp:hover {
-    background: $gray-blue;
-    border-radius: 10px;
+    background: $pink;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
     .navbar__dropdown-gdp__content {
       display: block;
       position: absolute;
-      background: none;
+      background: $dropdown-color;
     }
   }
   &__button-clear {
-    visibility: hidden;
+    display: none;
     background: none;
-    color: white;
+    color: $gray-blue;
     font-size: 25px;
     position: relative;
-    display: inline-block;
+    //display: inline-block;
     padding: 10px;
     margin-left: 50px;
     cursor: default;
     &.shown {
-      visibility: visible;
+      display: inline-block;
     }
     &.shown:hover {
-      background: $gray-blue;
+      background: $pink;
       border-radius: 10px;
+      color: white;
     }
     &.shown:active {
-      background: $blue;
+      background: $active-color;
     }
   }
-  &__modal {
-    background: $gray-blue-opacity;
-    height: 770px;
-    width: 1500px;
-    opacity: 0.9;
-    display: block;
-    margin: auto;
-    box-shadow: 0px 8px 16px 0px gainsboro;
+}
+.navbar__modal {
+  &__close {
+    color: $gray-blue;
+    font-size: 25px;
+    padding: 10px;
+    float: right;
+    width: fit-content;
+  }
+  &__close:hover {
+    background: $pink;
+    color: white;
     border-radius: 10px;
-    &__header {
-      color: white;
-      font-size: 25px;
-      margin-left: 1400px;
-      //margin-right: 10px;
-      padding:10px;
-      text-align: center;
-      cursor: default;
-    }
-    &__header:hover {
-      background: $blue;
-      border-radius: 10px;
-    }
   }
+  &__close:active {
+    background: $active-color;
+    color: white;
+    border-radius: 10px;
+  }
+
 }

@@ -1,3 +1,4 @@
+@import "../../colors";
 svg {
   position: fixed;
   height: 100%;
@@ -7,7 +8,7 @@ svg {
   margin: 0 auto;
   path {
     fill: none;
-    stroke: white;
+    stroke: $gray-blue;
   }
 }
 svg:active {
