@@ -344,9 +344,9 @@ const europeData = [
     },
     {
         "id": "RU",
-        "population": 145934462,
+        "population": 110000000,
         "name": "Russia",
-        "surface": 16376870,
+        "surface": 3960000,
         "gdp": 10846
     }
 ]

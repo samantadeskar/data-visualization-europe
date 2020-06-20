@@ -1,14 +1,17 @@
 const constants = {
     width: 1500,
     height: 900,
-    surface: "surface",
-    population: "population",
-    gdp: "gdp",
+    surface: "Surface",
+    population: "Population",
+    gdp: "GDP",
     pie: "pie",
     bar: "bar",
     europe: "europe",
-    pieChartOuterRadius: 500,
-    pieChartInnerRadius: 0,
+    barChart: {
+        width: 1300,
+        height: 600,
+        margin: 60,
+    }
 }
 
 export default constants;

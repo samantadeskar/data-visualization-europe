@@ -5,7 +5,7 @@ import Modal from "react-responsive-modal";
 import "./Navbar.scss";
 import "../../constants";
 import constants from "../../constants";
-import PieChart from "../Charts/PieChart/PieChart";
+import BarChart from "../Charts/BarChart/BarChart";
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -53,9 +53,10 @@ class Navbar extends Component {
 
   showData = () => {
     return (
-     this.state.showModal && <PieChart
+      <BarChart
         dataToShow={this.state.dataToShow}
         country={constants.europe}
+        show={this.state.showModal}
       />
     );
   }
@@ -68,7 +69,6 @@ class Navbar extends Component {
         <div className="navbar__dropdown-surface">
           Surface
           <div className="navbar__dropdown-surface__content">
-            <div onClick={() => this.displayChart(constants.pie, constants.surface)}>PIE CHART</div>
             <div onClick={() => this.displayChart(constants.bar, constants.surface)}>BAR CHART</div>
             <div onClick={(e) => this.handleOnClickShow(constants.surface, e)}>SHOW ON MAP</div>
           </div>
@@ -76,7 +76,6 @@ class Navbar extends Component {
         <div className="navbar__dropdown-population">
           Population
           <div className="navbar__dropdown-population__content">
-            <div onClick={() => this.displayChart(constants.pie, constants.population)}>PIE CHART</div>
             <div onClick={() => this.displayChart(constants.bar, constants.population)}>BAR CHART</div>
             <div onClick={(e) => this.handleOnClickShow(constants.population, e)}>SHOW ON MAP</div>
           </div>

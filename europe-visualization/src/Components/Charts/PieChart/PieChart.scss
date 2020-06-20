@@ -1,4 +1,10 @@
 svg {
-    width: 1000;
-    height: 600;
+  width: 500px;
+  height: 500px;
+  g {
+    .pie {
+      width: 500px;
+      height: 500px;
+    }
+  }
 }

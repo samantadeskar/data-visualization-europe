@@ -13,6 +13,7 @@ $chart-color-7: #e0944d;
 $chart-color-8: #ecee5d;
 $chart-color-9: #b2ff71;
 $chart-color-10: #ffa600;
+$bar-chart: #ff9bb2;
 :export {
     activeColor: $active-color;
     pink: $pink;
@@ -27,5 +28,6 @@ $chart-color-10: #ffa600;
     chartColor7: $chart-color-7;
     chartColor8: $chart-color-8;
     chartColor9: $chart-color-9;
+    barChart: $bar-chart;
     chartColor10: $chart-color-10;
 }
