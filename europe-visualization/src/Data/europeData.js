@@ -1,3 +1,7 @@
+//sources: https://www.worldometers.info/population/countries-in-europe-by-population/, 
+//https://www.wikipedia.org/,
+//https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?name_desc=false
+
 const europeData = [
     {
         "id": "AZ",

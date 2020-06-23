@@ -56,24 +56,21 @@ class BarChart extends Component {
     const svg = d3.select(this.refs.barChart).append("svg");
     let domain, info;
 
-    if(this.props.dataToShow === constants.surface) {
+    if (this.props.dataToShow === constants.surface) {
       domain = 800000;
       info = " km2";
     } else if (this.props.dataToShow === constants.population) {
       domain = 100000000;
       info = "";
     } else if (this.props.dataToShow === constants.gdp) {
-      domain = 150000;
+      domain = 160000;
       info = "$";
     }
 
-    const chart = svg.append("g")
-      .attr("transform", `translate(${margin}, ${margin})`);
+    const chart = svg.append("g").attr("transform", `translate(${margin}, ${margin})`);
 
     const yScale = d3.scaleLinear().range([height, 0]).domain([0, domain]);
-    chart
-      .append("g")
-      .call(d3.axisLeft(yScale));
+    chart.append("g").call(d3.axisLeft(yScale));
 
     const xScale = d3.scaleBand().range([0, width]).domain(data.map(data => data[0]));
     chart.append("g").attr("transform", `translate(0, ${height})`).call(d3.axisBottom(xScale).tickFormat(""));
@@ -94,32 +91,32 @@ class BarChart extends Component {
       .attr("height", (d) => height - yScale(d[1]))
       .attr("width", xScale.bandwidth())
       .style("fill", colors.grayBlue)
-      .on("mouseenter", function(d) {
-        d3.select(this).style("fill", colors.activeColor).style("opacity",0.7);
-        if(dataToShow === constants.gdp){
-        d3.select(ref).style("display", "block")
-        .html(d[0] + "<br>" + dataToShow + ": " + info + d[1]);
+      .on("mouseenter", function (d) {
+        d3.select(this).style("fill", colors.activeColor).style("opacity", 0.7);
+        if (dataToShow === constants.gdp) {
+          d3.select(ref).style("display", "block")
+            .html(d[0] + "<br>" + dataToShow + ": " + info + d[1]);
         } else {
           d3.select(ref).style("display", "block")
-        .html(d[0] + "<br>" + dataToShow + ": "  + d[1] + info);
+            .html(d[0] + "<br>" + dataToShow + ": " + d[1] + info);
         }
       })
-      .on("mouseleave", function(d) {
+      .on("mouseleave", function (d) {
         d3.select(this).style("fill", colors.grayBlue).style("opacity", 1);
-        d3.select(ref).style("display","none");
+        d3.select(ref).style("display", "none");
       });
 
     svg.append("text")
       .attr("class", "barChartLabel")
-      .attr("x", margin)
-      .attr("y", 30)
+      .attr("x", 50)
+      .attr("y", 50)
       .attr("text-anchor", "middle")
       .text(this.props.dataToShow);
 
     svg.append("text")
       .attr("class", "barChartLabel")
-      .attr("x", width)
-      .attr("y", height + 100)
+      .attr("x", width+50)
+      .attr("y", height + 130)
       .attr("text-anchor", "middle")
       .text("Countries");
   }

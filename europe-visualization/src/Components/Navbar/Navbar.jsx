@@ -21,18 +21,16 @@ class Navbar extends Component {
 
   handleOnClickShow = (value, e) => {
     this.props.fillMap(value, e);
-    this.setState(prevState => ({
-      ...prevState,
-      showButton: !prevState.showButton,
-    }));
+    this.setState({
+      showButton: true,
+    });
   }
 
   handleOnClickButton = () => {
     this.props.drawMap();
-    this.setState(prevState => ({
-      ...prevState,
-      showButton: !prevState.showButton,
-    }));
+    this.setState({
+      showButton: false,
+    });
   }
 
   displayChart = (chart, dataToShow) => {
@@ -70,21 +68,21 @@ class Navbar extends Component {
           Surface
           <div className="navbar__dropdown-surface__content">
             <div onClick={() => this.displayChart(constants.bar, constants.surface)}>BAR CHART</div>
-            <div onClick={(e) => this.handleOnClickShow(constants.surface, e)}>SHOW ON MAP</div>
+            <div onClick={() => this.handleOnClickShow(constants.surface)}>SHOW ON MAP</div>
           </div>
         </div>
         <div className="navbar__dropdown-population">
           Population
           <div className="navbar__dropdown-population__content">
             <div onClick={() => this.displayChart(constants.bar, constants.population)}>BAR CHART</div>
-            <div onClick={(e) => this.handleOnClickShow(constants.population, e)}>SHOW ON MAP</div>
+            <div onClick={() => this.handleOnClickShow(constants.population)}>SHOW ON MAP</div>
           </div>
         </div>
         <div className="navbar__dropdown-gdp">
           GDP per capita
           <div className="navbar__dropdown-gdp__content">
             <div onClick={() => this.displayChart(constants.bar, constants.gdp)}>BAR CHART</div>
-            <div onClick={(e) => this.handleOnClickShow(constants.gdp, e)}>SHOW ON MAP</div>
+            <div onClick={() => this.handleOnClickShow(constants.gdp)}>SHOW ON MAP</div>
           </div>
         </div>
         <div
@@ -116,7 +114,8 @@ class Navbar extends Component {
                 alignItems: "flex-start",
               },
               modal: {
-                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%, rgba(253, 203, 241, 0.6) 1%, rgba(230, 222, 233, 0.6) 100%)",
+                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%,"+ 
+                "rgba(253, 203, 241, 0.6) 1%, rgba(230, 222, 233, 0.6) 100%)",
                 height: "90%",
                 width: "90%",
                 borderRadius: "10px",

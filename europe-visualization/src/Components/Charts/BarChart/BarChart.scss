@@ -1,50 +1,56 @@
 @import "../../../colors";
 .bar-chart {
-    // background: black;
-    position: fixed;
-    height: 70%;
-    width: 80%;
-    display: block;
-    top: 15%;
-    margin-left: 5%;
-    svg {
-        display: flex;
-        position: relative;
-        padding-left: 4%;
-        cursor: default;
-    }
-    rect {
-        display: flex;
-        position: relative;
-        margin-top: 2%;
-    }
-    text {
-        color: $gray-blue;
-        font-size: 14px;
-        font-weight: bold;
-    }
-    .barChartLabel {
-        font-size: 20px;
-        color: white;
-    }
-    &__country-info {
-        position: absolute;
-        margin-top: 36%;
-        margin-left:45%;
-        font-size: 20px;
-        display: none;
-        font-weight: bold;
-        background: rgba(255, 255, 255, 0.7);
-        padding:1%;
-        border-radius: 10px;
-        color: $gray-blue;
-    }
+  //background: black;
+  position: fixed;
+  height: 70%;
+  width: 80%;
+  display: block;
+  top: 15%;
+  margin-left: 5%;
+  svg {
+    // background: white;
+    display: flex;
+    position: relative;
+    padding-left: 4%;
+    cursor: default;
+    width: 1300px;
+    height: 95%;
+
+  }
+
+  rect {
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+  }
+  text {
+    color: $gray-blue;
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 1;
+  }
+  .barChartLabel {
+    font-size: 20px;
+    color: white;
+  }
+  &__country-info {
+    position: absolute;
+    margin-top: 37%;
+    margin-left: 40%;
+    font-size: 20px;
+    display: none;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1%;
+    border-radius: 10px;
+    color: $gray-blue;
+  }
 }
 .hover {
-    position: absolute;
-    display: block;
-    margin-top: 42%;
-    font-size: 25px;
-    color: $gray-blue;
-    right: 10%;
+  position: absolute;
+  display: block;
+  margin-top: 42%;
+  font-size: 25px;
+  color: $gray-blue;
+  right: 10%;
 }

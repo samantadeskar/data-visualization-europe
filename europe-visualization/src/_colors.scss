@@ -1,6 +1,7 @@
 $active-color: #e98074;
 $pink: #ff9bb2;
 $gray-blue: #2d4159;
+$map-opacity: rgba(45, 65, 89, 0.3);
 $dropdown-color:rgba(253, 203, 241, 0.4);
 
 $chart-color-1: #ffbefa;
@@ -18,6 +19,7 @@ $bar-chart: #ff9bb2;
     activeColor: $active-color;
     pink: $pink;
     grayBlue: $gray-blue;
+    mapOpacity: $map-opacity;
     dropdown: $dropdown-color;
     chartColor1: $chart-color-1;
     chartColor2: $chart-color-2;

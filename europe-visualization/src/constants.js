@@ -1,6 +1,6 @@
 const constants = {
-    width: 1500,
-    height: 900,
+    width: 1200,
+    height: 800,
     surface: "Surface",
     population: "Population",
     gdp: "GDP",
@@ -10,7 +10,7 @@ const constants = {
     barChart: {
         width: 1300,
         height: 600,
-        margin: 60,
+        margin: 90,
     }
 }
 
