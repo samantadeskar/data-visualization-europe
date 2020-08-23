@@ -11,6 +11,8 @@ class ModalComponent extends Component {
     super(props);
     this.state = ({
       religion: false,
+      urbanRural: false,
+      showChart: false,
     });
   }
   getCountry = countryId => {
@@ -19,11 +21,20 @@ class ModalComponent extends Component {
 
   showChart = chartType => {
     switch (chartType) {
-      case constants.religion:
+      case constants.religion: {
         this.setState({
           religion: true,
+          urbanRural: false,
         });
         break;
+      }
+      case constants.urbanRural: {
+        this.setState({
+          urbanRural: true,
+          religion: false,
+        });
+        break;
+      }
       default: break;
     }
   }
@@ -34,12 +45,13 @@ class ModalComponent extends Component {
       <div className="country-modal">
         <div className="country-modal__country-name">{country.name}</div>
         <div className="country-modal__religion" onClick={() => this.showChart(constants.religion)}>Religion</div>
+        <div className="country-modal__urban-rural" onClick={() => this.showChart(constants.urbanRural)}>Urban vs. Rural</div>
         <div className="country-modal__chart">
           {
-            this.state.religion
+            (this.state.religion || this.state.urbanRural)
             && <PieChart
               country={country}
-              dataToShow={constants.religion}
+              dataToShow={this.state.religion ? constants.religion : constants.urbanRural}
             />
           }
         </div>

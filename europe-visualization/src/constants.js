@@ -19,6 +19,7 @@ const constants = {
         radius: Math.min(1500, 600)/2,
     },
     religion: "religion",
+    urbanRural: "urbanRural",
 }
 
 export default constants;

@@ -10,6 +10,16 @@ const europeData = [
     "name": "Azerbaijan",
     "surface": 86600,
     "gdp": 4139,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.56
+      },
+      {
+        "name": "rural",
+        "percentage": 0.44
+      }
+    ],
     "religion": [
 
       {
@@ -63,6 +73,16 @@ const europeData = [
     "name": "Albania",
     "surface": 27400,
     "gdp": 4521,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.63
+      },
+      {
+        "name": "rural",
+        "percentage": 0.37
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -104,6 +124,16 @@ const europeData = [
     "name": "Armenia",
     "surface": 29743,
     "gdp": 3918,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.63
+      },
+      {
+        "name": "rural",
+        "percentage": 0.37
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -145,6 +175,16 @@ const europeData = [
     "name": "Bosnia and Herzegovina",
     "surface": 51000,
     "gdp": 5387,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.52
+      },
+      {
+        "name": "rural",
+        "percentage": 0.46
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -186,6 +226,16 @@ const europeData = [
     "name": "Bulgaria",
     "surface": 108560,
     "gdp": 8197,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.76
+      },
+      {
+        "name": "rural",
+        "percentage": 0.24
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -227,6 +277,16 @@ const europeData = [
     "name": "Cyprus",
     "surface": 9251,
     "gdp": 18695,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.67
+      },
+      {
+        "name": "rural",
+        "percentage": 0.33
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -268,6 +328,16 @@ const europeData = [
     "name": "Denmark",
     "surface": 15200,
     "gdp": 57545,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.88
+      },
+      {
+        "name": "rural",
+        "percentage": 0.12
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -309,6 +379,16 @@ const europeData = [
     "name": "Ireland",
     "surface": 68890,
     "gdp": 69727,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.63
+      },
+      {
+        "name": "rural",
+        "percentage": 0.37
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -350,6 +430,16 @@ const europeData = [
     "name": "Estonia",
     "surface": 42390,
     "gdp": 20170,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.68
+      },
+      {
+        "name": "rural",
+        "percentage": 0.32
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -391,6 +481,16 @@ const europeData = [
     "name": "Austria",
     "surface": 82409,
     "gdp": 47261,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.57
+      },
+      {
+        "name": "rural",
+        "percentage": 0.43
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -432,6 +532,16 @@ const europeData = [
     "name": "Czech Republic",
     "surface": 77240,
     "gdp": 20291,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.74
+      },
+      {
+        "name": "rural",
+        "percentage": 0.26
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -474,6 +584,16 @@ const europeData = [
     "name": "Finland",
     "surface": 303890,
     "gdp": 45778,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.86
+      },
+      {
+        "name": "rural",
+        "percentage": 0.14
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -515,6 +635,16 @@ const europeData = [
     "name": "France",
     "surface": 547557,
     "gdp": 39827,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.82
+      },
+      {
+        "name": "rural",
+        "percentage": 0.18
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -556,6 +686,16 @@ const europeData = [
     "name": "Georgia",
     "surface": 69700,
     "gdp": 3762,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.58
+      },
+      {
+        "name": "rural",
+        "percentage": 0.42
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -597,6 +737,16 @@ const europeData = [
     "name": "Germany",
     "surface": 348560,
     "gdp": 44680,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.76
+      },
+      {
+        "name": "rural",
+        "percentage": 0.24
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -638,6 +788,16 @@ const europeData = [
     "name": "Greece",
     "surface": 128900,
     "gdp": 19214,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.85
+      },
+      {
+        "name": "rural",
+        "percentage": 0.15
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -679,6 +839,16 @@ const europeData = [
     "name": "Croatia",
     "surface": 55960,
     "gdp": 13200,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.58
+      },
+      {
+        "name": "rural",
+        "percentage": 0.42
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -720,6 +890,16 @@ const europeData = [
     "name": "Hungary",
     "surface": 90530,
     "gdp": 14364,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.72
+      },
+      {
+        "name": "rural",
+        "percentage": 0.28
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -761,6 +941,16 @@ const europeData = [
     "name": "Iceland",
     "surface": 100250,
     "gdp": 73233,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.94
+      },
+      {
+        "name": "rural",
+        "percentage": 0.06
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -802,6 +992,16 @@ const europeData = [
     "name": "Italy",
     "surface": 294140,
     "gdp": 32038,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.69
+      },
+      {
+        "name": "rural",
+        "percentage": 0.31
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -843,6 +1043,16 @@ const europeData = [
     "name": "Latvia",
     "surface": 62200,
     "gdp": 15613,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.69
+      },
+      {
+        "name": "rural",
+        "percentage": 0.31
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -884,6 +1094,16 @@ const europeData = [
     "name": "Belarus",
     "surface": 202910,
     "gdp": 5762,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.79
+      },
+      {
+        "name": "rural",
+        "percentage": 0.21
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -925,6 +1145,16 @@ const europeData = [
     "name": "Lithuana",
     "surface": 62674,
     "gdp": 16709,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.71
+      },
+      {
+        "name": "rural",
+        "percentage": 0.29
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -966,6 +1196,16 @@ const europeData = [
     "name": "Slovakia",
     "surface": 48088,
     "gdp": 17551,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.54
+      },
+      {
+        "name": "rural",
+        "percentage": 0.46
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1007,6 +1247,16 @@ const europeData = [
     "name": "Liechtenstein",
     "surface": 160,
     "gdp": 165028,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.15
+      },
+      {
+        "name": "rural",
+        "percentage": 0.85
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1048,6 +1298,16 @@ const europeData = [
     "name": "North Macedonia",
     "surface": 25220,
     "gdp": 5418,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.59
+      },
+      {
+        "name": "rural",
+        "percentage": 0.41
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1089,6 +1349,16 @@ const europeData = [
     "name": "Malta",
     "surface": 320,
     "gdp": 28585,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.93
+      },
+      {
+        "name": "rural",
+        "percentage": 0.07
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1130,6 +1400,16 @@ const europeData = [
     "name": "Belgium",
     "surface": 30280,
     "gdp": 43325,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.98
+      },
+      {
+        "name": "rural",
+        "percentage": 0.02
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1171,6 +1451,16 @@ const europeData = [
     "name": "Faeroe Islands",
     "surface": 1396,
     "gdp": 55822,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.43
+      },
+      {
+        "name": "rural",
+        "percentage": 0.57
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1212,6 +1502,16 @@ const europeData = [
     "name": "Andorra",
     "surface": 470,
     "gdp": 39128,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.88
+      },
+      {
+        "name": "rural",
+        "percentage": 0.12
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1253,6 +1553,16 @@ const europeData = [
     "name": "Luxembourg",
     "surface": 2590,
     "gdp": 105280,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.88
+      },
+      {
+        "name": "rural",
+        "percentage": 0.12
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1294,6 +1604,16 @@ const europeData = [
     "name": "Monaco",
     "surface": 1974,
     "gdp": 185741,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 1
+      },
+      {
+        "name": "rural",
+        "percentage": 0
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1335,6 +1655,16 @@ const europeData = [
     "name": "Montenegro",
     "surface": 13450,
     "gdp": 7720,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.68
+      },
+      {
+        "name": "rural",
+        "percentage": 0.32
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1376,6 +1706,16 @@ const europeData = [
     "name": "Netherlands",
     "surface": 33720,
     "gdp": 48796,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.92
+      },
+      {
+        "name": "rural",
+        "percentage": 0.08
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1417,6 +1757,16 @@ const europeData = [
     "name": "Norway",
     "surface": 365268,
     "gdp": 75428,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.83
+      },
+      {
+        "name": "rural",
+        "percentage": 0.17
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1458,6 +1808,16 @@ const europeData = [
     "name": "Poland",
     "surface": 306230,
     "gdp": 13871,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.60
+      },
+      {
+        "name": "rural",
+        "percentage": 0.40
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1499,6 +1859,16 @@ const europeData = [
     "name": "Portugal",
     "surface": 91590,
     "gdp": 21316,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.66
+      },
+      {
+        "name": "rural",
+        "percentage": 0.34
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1540,6 +1910,16 @@ const europeData = [
     "name": "Romania",
     "surface": 230170,
     "gdp": 10781,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.55
+      },
+      {
+        "name": "rural",
+        "percentage": 0.45
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1581,6 +1961,16 @@ const europeData = [
     "name": "Moldova",
     "surface": 32850,
     "gdp": 2002,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.43
+      },
+      {
+        "name": "rural",
+        "percentage": 0.57
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1622,6 +2012,16 @@ const europeData = [
     "name": "Slovenia",
     "surface": 20140,
     "gdp": 23488,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.55
+      },
+      {
+        "name": "rural",
+        "percentage": 0.45
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1663,6 +2063,16 @@ const europeData = [
     "name": "Spain",
     "surface": 498800,
     "gdp": 28175,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.80
+      },
+      {
+        "name": "rural",
+        "percentage": 0.20
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1704,6 +2114,16 @@ const europeData = [
     "name": "Sweden",
     "surface": 410340,
     "gdp": 54075,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.88
+      },
+      {
+        "name": "rural",
+        "percentage": 0.12
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1745,6 +2165,16 @@ const europeData = [
     "name": "Switzerland",
     "surface": 39516,
     "gdp": 80296,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.74
+      },
+      {
+        "name": "rural",
+        "percentage": 0.26
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1786,6 +2216,16 @@ const europeData = [
     "name": "Turkey",
     "surface": 783562,
     "gdp": 10498,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.76
+      },
+      {
+        "name": "rural",
+        "percentage": 0.24
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1827,6 +2267,16 @@ const europeData = [
     "name": "United Kingdom",
     "surface": 241930,
     "gdp": 39532,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.83
+      },
+      {
+        "name": "rural",
+        "percentage": 0.17
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1868,6 +2318,16 @@ const europeData = [
     "name": "Ukraine",
     "surface": 579320,
     "gdp": 2521,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.69
+      },
+      {
+        "name": "rural",
+        "percentage": 0.31
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1909,6 +2369,16 @@ const europeData = [
     "name": "San Marino",
     "surface": 61,
     "gdp": 48495,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.97
+      },
+      {
+        "name": "rural",
+        "percentage": 0.03
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1950,6 +2420,16 @@ const europeData = [
     "name": "Serbia",
     "surface": 87460,
     "gdp": 4692,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.56
+      },
+      {
+        "name": "rural",
+        "percentage": 0.44
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -1991,6 +2471,16 @@ const europeData = [
     "name": "Vatican",
     "surface": 0.49,
     "gdp": 21198,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 1
+      },
+      {
+        "name": "rural",
+        "percentage": 0
+      }
+    ],
     "religion": [
       {
         "name": "Christian",
@@ -2032,6 +2522,16 @@ const europeData = [
     "name": "Russia",
     "surface": 3960000,
     "gdp": 10846,
+    "urbanRural": [
+      {
+        "name": "urban",
+        "percentage": 0.74
+      },
+      {
+        "name": "rural",
+        "percentage": 0.26
+      }
+    ],
     "religion": [
 
       {

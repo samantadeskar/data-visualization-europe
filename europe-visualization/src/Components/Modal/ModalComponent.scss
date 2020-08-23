@@ -25,4 +25,21 @@
     color: white;
     border-radius: 10px;
   }
+  &__urban-rural {
+    color: $gray-blue;
+    font-size: 25px;
+    padding: 10px;
+    float: left;
+    width: fit-content;
+  }
+  &__urban-rural:hover {
+    background: $pink;
+    color: white;
+    border-radius: 10px;
+  }
+  &__uurban-rural:active {
+    background: $active-color;
+    color: white;
+    border-radius: 10px;
+  }
 }
