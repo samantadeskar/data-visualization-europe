@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson";
-import * as _ from "lodash";
+import _ from "lodash";
+import Modal from "react-responsive-modal";
 
 import "./Map.scss";
 import constants from "../../constants";
@@ -9,9 +10,18 @@ import Navbar from "../Navbar/Navbar";
 import * as Colors from "../../_colors.scss";
 import europeData from "../../Data/europeData";
 import * as colors from "../../_colors.scss";
+import ModalComponent from "../Modal/ModalComponent";
 
 //source: lab examples, project from my internship, https://blog.robertjesionek.com/d3js-geo/
 class Map extends Component {
+
+  constructor() {
+    super();
+    this.state = ({
+      showModal: false,
+      dataToShow: null,
+    })
+  }
 
   getPath = () => {
     const projection = d3.geoMercator()
@@ -77,6 +87,14 @@ class Map extends Component {
           d3.select(this).style("fill", colors.mapOpacity);
           d3.select("#tooltip")
             .style("opacity", 0);
+        })
+        .on("click", (d) => {
+          console.log(d.id);
+          this.setState({
+            showModal: true,
+            dataToShow: d.id,
+          });
+          d3.select("#tooltip").style("opacity", 0);
         });
     });
   }
@@ -137,11 +155,27 @@ class Map extends Component {
         .on("mouseout", function () {
           d3.select("#tooltip")
             .style("opacity", 0);
-        });;
+        })
+        .on("click", (d) => {
+          console.log(d.id);
+          this.setState({
+            showModal: true,
+            dataToShow: d.id,
+          });
+        });
     });
   }
 
+  closeModal = () => {
+    this.setState({
+      showModal: false,
+      dataToShow: null,
+    })
+  }
+
   render() {
+    const showModal = this.state.showModal;
+    const dataToShow = this.state.dataToShow;
     return (
       <div>
         <Navbar
@@ -154,6 +188,43 @@ class Map extends Component {
         </svg>
         <text id="tooltip">
         </text>
+        <div>
+          {showModal && <Modal
+            className="europe-map__modal"
+            open={showModal}
+            onClose={() => this.closeModal()}
+            closeOnOverlayClick={true}
+            showCloseIcon={false}
+            closeOnEsc={true}
+            center={true}
+            styles={{
+              overlay: {
+                display: "block",
+                position: "fixed",
+                overflowY: "auto",
+                overflowX: "hidden",
+                width: "100%",
+                height: "100%",
+                alignItems: "flex-start",
+              },
+              modal: {
+                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%," +
+                  "rgba(253, 203, 241, 0.6) 1%, rgba(230, 222, 233, 0.6) 100%)",
+                height: "90%",
+                width: "90%",
+                borderRadius: "10px",
+                margin: "auto",
+                boxShadow: "0px 4px 8px 0px gray",
+              },
+            }}
+          >
+            <div className="europe-map__modal__close" onClick={() => this.closeModal()}>
+              Close
+            </div>
+            {showModal && <ModalComponent dataToShow={dataToShow} />}
+          </Modal>
+          }
+        </div>
       </div>
     );
 

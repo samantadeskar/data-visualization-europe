@@ -29,3 +29,25 @@ text {
   color: $gray-blue;
   opacity: 0;
 }
+
+.europe-map {
+  &__modal {
+    &__close {
+      color: $gray-blue;
+      font-size: 25px;
+      padding: 10px;
+      float: right;
+      width: fit-content;
+    }
+    &__close:hover {
+      background: $pink;
+      color: white;
+      border-radius: 10px;
+    }
+    &__close:active {
+      background: $active-color;
+      color: white;
+      border-radius: 10px;
+    }
+  }
+}

@@ -124,10 +124,8 @@ class BarChart extends Component {
   render() {
     return (
       <div>
-        <div className="bar-chart" ref="barChart">
-        </div>
-        <div className="bar-chart__country-info" ref="countryInfo">
-        </div>
+        <div className="bar-chart" ref="barChart" />
+        <div className="bar-chart__country-info" ref="countryInfo" />
         <div className="hover">Hover over bars to see more info</div>
       </div>
     );

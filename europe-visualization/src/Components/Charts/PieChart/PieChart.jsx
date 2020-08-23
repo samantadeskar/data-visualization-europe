@@ -1,81 +1,95 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 
+//sources: http://bl.ocks.org/dbuezas/9306799,
+//https://www.d3-graph-gallery.com/graph/donut_label.html
 import constants from "../../../constants";
-import europeData from "../../../Data/europeData";
-import colors from "../../../_colors.scss";
+import * as myColors from "../../../_colors.scss";
 class PieChart extends Component {
   constructor() {
     super();
     this.showChart = this.showChart.bind(this);
+    this.removeChart = this.removeChart.bind(this);
   }
   componentDidMount() {
     this.showChart();
   }
-  getColors = () => {
-    return (
-      [
-        colors.chartColor1, colors.chartColor2, colors.chartColor3, colors.chartColor4, colors.chartColor5,
-        colors.chartColor6, colors.chartColor7, colors.chartColor8, colors.chartColor9, colors.chartColor10,
-        colors.chartColor1, colors.chartColor2, colors.chartColor3, colors.chartColor4, colors.chartColor5,
-        colors.chartColor6, colors.chartColor7, colors.chartColor8, colors.chartColor9, colors.chartColor10,
-        colors.chartColor1, colors.chartColor2, colors.chartColor3, colors.chartColor4, colors.chartColor5,
-        colors.chartColor6, colors.chartColor7, colors.chartColor8, colors.chartColor9, colors.chartColor10,
-        colors.chartColor1, colors.chartColor2, colors.chartColor3, colors.chartColor4, colors.chartColor5,
-        colors.chartColor6, colors.chartColor7, colors.chartColor8, colors.chartColor9, colors.chartColor10,
-        colors.chartColor1, colors.chartColor2, colors.chartColor3, colors.chartColor4, colors.chartColor5,
-        colors.chartColor6, colors.chartColor7, colors.chartColor8, colors.chartColor9, colors.chartColor10
-      ]
-    );
+
+  componentDidUpdate() {
+    this.removeChart();
+    this.showChart();
   }
 
-  getData = value => {
-    return europeData.map(country => {
-      switch (value) {
-        case constants.surface: {
-          country.value = country.surface;
-          break;
-        }
-        case constants.population: {
-          country.value = country.population;
-          break;
-        }
-        default: break;
-      }
-      return [country.name, country.value];
-    });
+  removeChart = () => {
+    d3.select(this.refs.pieChart).selectAll("*").remove();
+  }
+
+  getData = () => {
+    const dataToShow = this.props.dataToShow;
+    const country = this.props.country;
+    let data;
+    switch (dataToShow) {
+      case constants.religion:
+        data = country.religion;
+        break;
+      default: break;
+    }
+    return data;
   }
 
   showChart = () => {
-    const data = this.getData(this.props.dataToShow);
-    const pie = d3.pie().value(function (d, i) { return d[1] });
-    const arc = d3.arc()
-      .innerRadius(constants.pieChartInnerRadius)
-      .outerRadius(constants.pieChartOuterRadius);
-    const pieArcs = d3.select("#pieChart").selectAll("g.pie")
+    const data = this.getData();
+    const dataName = data.map(data => data.name);
+    const colors = d3.schemePastel1;
+    const width = constants.pieChart.width;
+    const height = constants.pieChart.height;
+    const radius = constants.pieChart.radius;
+    const svg = d3.select(this.refs.pieChart).append("svg").style("cursor","default").style("margin-top","2%").append("g");
+
+    svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    const color = d3.scaleOrdinal().domain(dataName).range(colors);
+    const pie = d3.pie().value(d => {
+      const percentage = d.percentage * 100;
+      return percentage;
+    })
+    const arc = d3.arc().innerRadius(0).outerRadius(radius * 0.8);
+
+    svg.selectAll("g")
+      .data(pie(data))
+      .enter()
+      .append("path")
+      .attr("d", arc)
+      .attr("fill", d => color(d.data.name))
+      .attr("stroke", "white")
+      .style("stroke-width", "1px");
+
+    const legend = svg.selectAll("legend")
       .data(pie(data))
       .enter()
       .append("g")
-      .attr("class", "pie")
-      .attr("transform", "translate(" + (constants.width / 2) + ", " +
-        (constants.height / 2) + ")")
-      .append("path")
-    pieArcs
-      .attr("fill", (d, i) => {
-        const t = i/data.length;
-        return d3.interpolatePlasma(t);
-      })
-      .attr("d", arc);
+      .attr("transform", (d, i) => "translate(" + -700 + "," + (i * 25 - 250) + ")")
+      .attr("class","legend");
 
+    legend.append("rect")
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill", d => color(d.data.name))
+      .attr("stroke",myColors.grayBlue);
+
+    legend.append("text")
+      .text(d => `${d.data.name}: ${((d.data.percentage) * 100).toFixed(2)}%`)
+      .style("font-size", 20)
+      .attr("y", 15)
+      .attr("x", 25)
+      .style("opacity", 1)
+      .style("fill", myColors.grayBlue);
   }
 
   render() {
     return (
       <div>
-        <svg id="pieChart">
-          {/* {this.showChart()} */}
-        </svg>
-        <div>Hover to see more info</div>
+        <div className="pie-chart" ref="pieChart" />
       </div>
     );
   }

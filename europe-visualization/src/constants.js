@@ -11,7 +11,14 @@ const constants = {
         width: 1300,
         height: 600,
         margin: 90,
-    }
+    },
+    pieChart: {
+        width: 1500,
+        height: 600,
+        margin: 90,
+        radius: Math.min(1500, 600)/2,
+    },
+    religion: "religion",
 }
 
 export default constants;
