@@ -39,6 +39,7 @@ class Navbar extends Component {
       chart: chart,
       dataToShow: dataToShow,
     });
+    this.props.closeModal();
   }
 
   closeChart = () => {
@@ -114,7 +115,7 @@ class Navbar extends Component {
                 alignItems: "flex-start",
               },
               modal: {
-                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%,"+ 
+                backgroundImage: "linear-gradient(to top, rgba(253, 203, 241, 0.6) 0%,"+
                 "rgba(253, 203, 241, 0.6) 1%, rgba(230, 222, 233, 0.6) 100%)",
                 height: "90%",
                 width: "90%",

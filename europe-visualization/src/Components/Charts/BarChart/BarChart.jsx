@@ -21,10 +21,12 @@ class BarChart extends Component {
     this.showChart();
   }
 
+  //function that removes the chart
   removeChart = () => {
     d3.select(this.refs.barChart).selectAll("*").remove();
   }
 
+  //function that returns data based on chosen category
   getData = value => {
     return europeData.map(country => {
       switch (value) {
@@ -46,6 +48,7 @@ class BarChart extends Component {
     });
   }
 
+  //function that creates the bar chart
   showChart = () => {
     const dataToShow = this.props.dataToShow;
     const ref = this.refs.countryInfo;
@@ -53,9 +56,11 @@ class BarChart extends Component {
     const width = constants.barChart.width - 2 * margin;
     const height = constants.barChart.height - 2 * margin;
     const data = this.getData(this.props.dataToShow);
+    //add svg to the barChart div
     const svg = d3.select(this.refs.barChart).append("svg");
     let domain, info;
 
+    //creating domain for each data category for better display
     if (this.props.dataToShow === constants.surface) {
       domain = 800000;
       info = " km2";
@@ -69,12 +74,13 @@ class BarChart extends Component {
 
     const chart = svg.append("g").attr("transform", `translate(${margin}, ${margin})`);
 
+    //create x and y scale
     const yScale = d3.scaleLinear().range([height, 0]).domain([0, domain]);
     chart.append("g").call(d3.axisLeft(yScale));
-
     const xScale = d3.scaleBand().range([0, width]).domain(data.map(data => data[0]));
     chart.append("g").attr("transform", `translate(0, ${height})`).call(d3.axisBottom(xScale).tickFormat(""));
 
+    //create grid with horizontal lines
     chart.append('g')
       .attr('class', 'grid')
       .call(d3.axisLeft()
@@ -82,15 +88,17 @@ class BarChart extends Component {
         .tickSize(-width, 0, 0)
         .tickFormat(''));
 
+    //create the bar chart
     chart.selectAll()
       .data(data)
       .enter()
       .append("rect")
-      .attr("x", (d) => xScale(d[0]))
-      .attr("y", (d) => yScale(d[1]))
+      .attr("x", (d) => xScale(d[0])) //add x-axis
+      .attr("y", (d) => yScale(d[1])) //add y-axiy
       .attr("height", (d) => height - yScale(d[1]))
       .attr("width", xScale.bandwidth())
       .style("fill", colors.grayBlue)
+      //add interaction to the bar chart -> display info on hover for each bar
       .on("mouseenter", function (d) {
         d3.select(this).style("fill", colors.activeColor).style("opacity", 0.7);
         if (dataToShow === constants.gdp) {
@@ -106,6 +114,7 @@ class BarChart extends Component {
         d3.select(ref).style("display", "none");
       });
 
+    //add label to the y-axis
     svg.append("text")
       .attr("class", "barChartLabel")
       .attr("x", 50)
@@ -113,6 +122,7 @@ class BarChart extends Component {
       .attr("text-anchor", "middle")
       .text(this.props.dataToShow);
 
+    //add label to the x-axis
     svg.append("text")
       .attr("class", "barChartLabel")
       .attr("x", width+50)

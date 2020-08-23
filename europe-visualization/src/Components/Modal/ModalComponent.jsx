@@ -19,6 +19,7 @@ class ModalComponent extends Component {
     return _.find(europeData, ["id", countryId]);
   }
 
+  //function that changes the state used for displaying the correct chart based on a chosen category
   showChart = chartType => {
     switch (chartType) {
       case constants.religion: {

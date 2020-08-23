@@ -23,6 +23,7 @@ class Map extends Component {
     })
   }
 
+  //function that creates a path for the map
   getPath = () => {
     const projection = d3.geoMercator()
       .center([0, 56])
@@ -31,6 +32,7 @@ class Map extends Component {
     return d3.geoPath().projection(projection);
   }
 
+  //function that returns information based on chosen category
   getTooltipData = (value, country) => {
     let countryValue;
     switch (value) {
@@ -48,6 +50,7 @@ class Map extends Component {
     return countryValue;
   }
 
+  //function that handles zoom on the map
   zoom = () => {
     return d3.zoom()
       .scaleExtent([1, 20])
@@ -57,13 +60,17 @@ class Map extends Component {
       });
   }
 
+  //function that removes the map
   removeMap = () => {
     d3.select("#europeMap").selectAll("*").remove();
   }
 
+  //function that creates the map
   drawMap = () => {
     this.removeMap();
     const path = this.getPath();
+
+    //draws the map based on given topojson file
     d3.json("europe.json").then(europe => {
       d3.select("#europeMap")
         .call(this.zoom())
@@ -74,6 +81,7 @@ class Map extends Component {
         .attr("class", "country")
         .attr("d", path)
         .style("fill", colors.mapOpacity)
+        //add interaction to the map -> display info on hover for each country
         .on("mouseover", function (d) {
           const country = _.find(europeData, ["id", d.id]);
           d3.select(this).style("fill", colors.dropdown);
@@ -88,6 +96,7 @@ class Map extends Component {
           d3.select("#tooltip")
             .style("opacity", 0);
         })
+        //add interaction to the map -> change state on click -> opens modal
         .on("click", (d) => {
           console.log(d.id);
           this.setState({
@@ -99,6 +108,7 @@ class Map extends Component {
     });
   }
 
+  //function that fills each country with different opacity based on chosen category
   fillMap = (value) => {
     this.removeMap();
 
@@ -119,6 +129,7 @@ class Map extends Component {
       default: break;
     }
 
+    //same as drawing inside drawMap function
     d3.json("europe.json").then(europe => {
       d3.select("#europeMap").selectAll("path.country")
         .data(topojson.feature(europe, europe.objects.europe).features)
@@ -129,6 +140,7 @@ class Map extends Component {
           return d.id;
         })
         .attr("d", path)
+        //set opacity based on data for chosen category
         .style("fill-opacity", function (d) {
           for (let i = 0; i < europeData.length; i++) {
             if (europeData[i].id === d.id) {
@@ -140,6 +152,7 @@ class Map extends Component {
           }
         })
         .style("fill", Colors.pink)
+        //add interaction to the map -> display info on hover for each country
         .on("mouseover", (d) => {
           const country = _.find(europeData, ["id", d.id]);
           let countryValue = this.getTooltipData(value, country);
@@ -156,6 +169,7 @@ class Map extends Component {
           d3.select("#tooltip")
             .style("opacity", 0);
         })
+        //add interaction to the map -> change state on click -> opens modal
         .on("click", (d) => {
           console.log(d.id);
           this.setState({
@@ -166,6 +180,7 @@ class Map extends Component {
     });
   }
 
+  //function that changes state used for closing modal
   closeModal = () => {
     this.setState({
       showModal: false,
@@ -182,6 +197,7 @@ class Map extends Component {
           fillMap={this.fillMap}
           drawMap={this.drawMap}
           displayChart={this.displayEuropeChart}
+          closeModal={this.closeModal}
         />
         <svg id="europeMap">
           {this.drawMap()}

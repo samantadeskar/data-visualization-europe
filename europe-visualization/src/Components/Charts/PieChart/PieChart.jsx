@@ -22,10 +22,12 @@ class PieChart extends Component {
     this.showChart();
   }
 
+  //function that removes the chart
   removeChart = () => {
     d3.select(this.refs.pieChart).selectAll("*").remove();
   }
 
+  //function that returns data based on a chosen category
   getData = () => {
     const dataToShow = this.props.dataToShow;
     const country = this.props.country;
@@ -44,30 +46,38 @@ class PieChart extends Component {
     return data;
   }
 
+  //function that creates the pie chart
   showChart = () => {
     const data = this.getData();
-    let isUrbanRural = this.props.dataToShow === constants.urbanRural;
+    const isUrbanRural = this.props.dataToShow === constants.urbanRural;
     const dataName = data.map(data => data.name);
     const colors = d3.schemePastel1;
     const width = constants.pieChart.width;
     const height = constants.pieChart.height;
     const radius = constants.pieChart.radius;
+    //add svg to the pieChart div
     const svg = d3.select(this.refs.pieChart)
-    .append("svg")
-    .style("cursor", "default")
-    .style("top", "18%")
-    .style("margin",0)
-    .append("g");
+      .append("svg")
+      .style("cursor", "default")
+      .style("top", "18%")
+      .style("margin", 0)
+      .append("g");
 
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+    //set color scheme based on data name
     const color = d3.scaleOrdinal().domain(dataName).range(colors);
+
+    //set pie value
     const pie = d3.pie().value(d => {
       const percentage = d.percentage * 100;
       return percentage;
     })
+
+    //set arc
     const arc = d3.arc().innerRadius(0).outerRadius(radius * 0.8);
 
+    //create the pie chart
     svg.selectAll("g")
       .data(pie(data))
       .enter()
@@ -77,6 +87,7 @@ class PieChart extends Component {
       .attr("stroke", "white")
       .style("stroke-width", "2px");
 
+    //if chosen category is urban vs rural, a percentage will be shown inside the pie chart
     if (isUrbanRural) {
       svg.selectAll("g")
         .data(pie(data))
@@ -89,6 +100,7 @@ class PieChart extends Component {
         .attr("fill", myColors.grayBlue);
     }
 
+    //add legend on the left side of the pie chart
     const legend = svg.selectAll("legend")
       .data(pie(data))
       .enter()
@@ -96,12 +108,14 @@ class PieChart extends Component {
       .attr("transform", (d, i) => "translate(" + -700 + "," + (i * 25 - 250) + ")")
       .attr("class", "legend");
 
+    //add rectangle for each data type
     legend.append("rect")
       .attr("width", 20)
       .attr("height", 20)
       .attr("fill", d => color(d.data.name))
       .attr("stroke", myColors.grayBlue);
 
+    //add text for each data type
     legend.append("text")
       .text(d => !isUrbanRural ? `${d.data.name}: ${((d.data.percentage) * 100).toFixed(2)}%` : d.data.name)
       .style("font-size", 20)
@@ -109,9 +123,6 @@ class PieChart extends Component {
       .attr("x", 25)
       .style("opacity", 1)
       .style("fill", myColors.grayBlue);
-
-    console.log(isUrbanRural);
-
   }
 
   render() {
